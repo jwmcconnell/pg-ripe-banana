@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  # Backend API
+  pg-ripe-banana:
+    container_name: pg-ripe-banana-backend
+    build: ./
+    command: npm run start:watch
+    working_dir: /usr/src/pg-ripe-banana
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./.env
+    environment: 
+      -POSTGRES_HOST: postgres
+    volumes:
+      - ./:/usr/src/pg-ripe-banana
+  # Postgres
+  postgres:
+    env_file:
+      - ./.env
+    build: ./postgres
+    ports:
+      - "5432:5432"
+  # pg-ripe-banan-test:
+  #   container_name: pg-ripe-banana-backend-test
+  #   build: ./
+  #   command: npm run test:watch
+  #   working_dir: /usr/src/pg-ripe-banana
+  #   env_file:
+  #     - ./.env
+    
