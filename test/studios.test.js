@@ -21,4 +21,12 @@ describe('studio routes', () => {
         });
       });
   });
+
+  it('returns a list of studios', () => {
+    return request(app)
+      .get('/api/v1/studios')
+      .then(res => {
+        expect(res.body).toEqual(expect.any(Array));
+      });
+  });
 });
