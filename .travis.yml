@@ -1,4 +1,4 @@
 language: node_js
 node_js: node
 services: mongodb
-env: MONGODB_URI=mongodb://localhost:27017/travis
+env: POSTGRES_USER=travis POSTGRES_PASSWORD=travispassword POSTGRES_DB=travis_ripe_banana_db POSTGRES_HOST=localhost POSTGRES_URI=postgres://travis:travispassword@localhost:5432/travis_ripe_banana_db
